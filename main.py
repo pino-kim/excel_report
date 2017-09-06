@@ -1,4 +1,4 @@
-from excel_con import *
+from eadwrite_class import *
 
 #demo : http://xlsxwriter.readthedocs.io/worksheet.html#write_formula
 

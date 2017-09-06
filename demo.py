@@ -11,7 +11,8 @@ row_len = sheet.nrows
 col_len = sheet.ncols
 
 #read all data colum
-data = [[str(c.value) for c in sheet.col(i)] for i in range(sheet.ncols)]
+data = [[str(c.value) for c in sheet.col(i)] for i in range(col_len)]
+print(data)
 
 #release excel
 book.release_resources()

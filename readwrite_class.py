@@ -1,22 +1,24 @@
 import xlrd
 import xlsxwriter
 
-#class Readxl:
-#    workbook = None
-#    worksheet = None
+class Readxl :
+    def __init__(self, workbook_titile) :
+        self.workbook_title = workbook_titile
+        #self.worksheet_title = None
 
-#    secret = "영구는 외계인이다."
 
-#    def read_xlsx(self, file_name):
-#        workbook = xlsxwriter.Workbook('filename.xlsx')
+    def read_xlsx_workbook(self) :
+        workbook = xlrd.open_workbook( self.workbook_title, on_demand = True )
+        return workbook
 
-#    def
+    def read_wlsx_worksheet(self,workbook, sheet_num) :
+        sheet = workbook.sheet_by_index(sheet_num)
+        return sheet
 
-#    def write_cell(self, cell_point, value):
-
-#    def sum(self, a, b):
-#        result = a + b
-#        print("%s님 %s + %s = %s입니다." % (self.name, a, b, result))
+    def get_rowcol_len(self, sheet) :
+        row_len = sheet.nrows
+        col_len = sheet.ncols
+        return (row_len, col_len)
 
 
 class Writexl :
