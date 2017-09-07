@@ -20,6 +20,18 @@ class Readxl :
         col_len = sheet.ncols
         return (row_len, col_len)
 
+    def get_data_by_row_index(self, sheet, index) :
+        data = sheet.row_values(index)
+        data_len = len(data)
+        return (data_len, data)
+
+    def get_data_by_col_index(self, sheet, index):
+        data = sheet.col_values(index)
+        data_len = len(data)
+        return (data_len, data)
+
+
+
 
 class Writexl :
     workbook_title = None
