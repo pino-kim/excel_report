@@ -1,0 +1,4 @@
+#git ignore file
+*.pyc
+*.xml
+*.iml
