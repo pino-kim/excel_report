@@ -11,7 +11,7 @@ rd_worksheet = readxl.read_xlsx_worksheet(rd_workbook, 0)
 #print(rd_worksheet)
 
 # get data first  section A colum
-(data_len, data) = readxl.get_data_from_col(rd_worksheet,0)
+(data_len, data) = readxl.read_data_from_col(rd_worksheet,0)
 
 # close readed workbook
 readxl.read_xlsx_close(rd_workbook)

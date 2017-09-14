@@ -21,13 +21,13 @@ class Readxl :
         return (row_len, col_len)
 
 
-    def get_data_from_row(self, sheet, index) :
+    def read_data_from_row(self, sheet, index) :
         data = sheet.row_values(index)
         data_len = len(data)
         return (data_len, data)
 
 
-    def get_data_from_col(self, sheet, index) :
+    def read_data_from_col(self, sheet, index) :
         data = sheet.col_values(index)
         data_len = len(data)
         return (data_len, data)
