@@ -1,35 +1,45 @@
-from itertools import takewhile
-import xlrd
-import xlsxwriter
-from readwrite_class import *
+from Readxl import *
+from Writexl import *
 
-book = xlrd.open_workbook('input.xlsx', on_demand = True)
-sheet = book.sheet_by_index(0)
+# Readxl class example
+readxl = Readxl("input.xlsx")
 
-#row and col length
-row_len = sheet.nrows
-col_len = sheet.ncols
+# read workbook, worksheet
+rd_workbook = readxl.read_xlsx_workbook()
+#print(rd_workbook)
+rd_worksheet = readxl.read_xlsx_worksheet(rd_workbook, 0)
+#print(rd_worksheet)
 
-#read all data colum
-data = [[str(c.value) for c in sheet.col(i)] for i in range(col_len)]
-print(data)
+# get data first  section A colum
+(data_len, data) = readxl.get_data_from_col(rd_worksheet,0)
 
-#release excel
-book.release_resources()
-del book
+# close readed workbook
+readxl.read_xlsx_close(rd_workbook)
+del readxl
 
+
+# Writexl class example
 writexl = Writexl('output.xlsx')
-wt_workbook =  writexl.write_xlsx_workbook()
-writexl.add_xlsx_worksheet(wt_workbook, "aaaaa")
 
-#wt_workbook.add_xlsx_worksheet('AA')
+# write workbook, worksheet
+wt_workbook = writexl.write_xlsx_workbook()
+#print(wt_workbook)
+wt_worksheet = writexl.add_xlsx_worksheet(wt_workbook)
+#print(wt_workbook)
 
+# write string 'data length' to A1. Cell point  is (0,0).
+writexl.write_cell_by_cellname(wt_worksheet ,'A1', 'data length')
 
-#wt_worksheet = wt_workbook.add_worksheet()
+# write integer 'data length' to A2.  Cell point  is (0,1).
+writexl.write_cell_by_rowcal(wt_worksheet, 1,0,  data_len)
 
-#data[0].pop(0)
+# write string 'data list' to B1. Cell point  is (1,0).
+writexl.write_cell_by_cellname(wt_worksheet ,'B1', 'data list')
 
-#wt_worksheet.write_column('A2', data[0])
-#wt_worksheet.write_column('B3', data[2])
+# write integer data to AB.  Cell point  is (0,1).
+#Write numbers down from cell' B2.'
+writexl.write_data_to_col(wt_worksheet, 'B2', data)
 
-#wt_workbook.close(wt_workbook)
+#close workbook
+writexl.write_xlsx_close(wt_workbook)
+del writexl
