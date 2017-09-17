@@ -13,8 +13,19 @@ class Writexl :
         worksheet = workbook.add_worksheet()
         return worksheet
 
-    def write_cell_by_cellname(self, worksheet, cell_name, content):
-        worksheet.write(cell_name, content)
+    def set_cell_format(self, workbook, type = 'defauilt'):
+        if type == 'test' :
+            format = workbook.add_format({'bold': True, 'font_color': 'red'})
+            return format
+        elif type == 'defauilt' :
+            format = workbook.add_format({'bold': False, 'font_color': 'blue'})
+            return format
+
+
+    #def write_cell_w_merge
+
+    def write_cell_by_cellname(self, worksheet, cell_name, content, format):
+        worksheet.write(cell_name, content, format)
 
     def write_cell_by_rowcal(self, worksheet, row, cal, content) :
         worksheet.write(row, cal, content)

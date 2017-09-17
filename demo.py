@@ -28,17 +28,18 @@ wt_worksheet = writexl.add_xlsx_worksheet(wt_workbook)
 #print(wt_workbook)
 
 # write string 'data length' to A1. Cell point  is (0,0).
-writexl.write_cell_by_cellname(wt_worksheet ,'A1', 'data length')
+format = writexl.set_cell_format(wt_workbook)
+writexl.write_cell_by_cellname(wt_worksheet ,'A1', 'data length', format)
 
 # write integer 'data length' to A2.  Cell point  is (0,1).
-writexl.write_cell_by_rowcal(wt_worksheet, 1,0,  data_len)
+#writexl.write_cell_by_rowcal(wt_worksheet, 1,0,  data_len)
 
 # write string 'data list' to B1. Cell point  is (1,0).
-writexl.write_cell_by_cellname(wt_worksheet ,'B1', 'data list')
+#writexl.write_cell_by_cellname(wt_worksheet ,'B1', 'data list')
 
 # write integer data to AB.  Cell point  is (0,1).
 #Write numbers down from cell' B2.'
-writexl.write_data_to_col(wt_worksheet, 'B2', data)
+#writexl.write_data_to_col(wt_worksheet, 'B2', data)
 
 #close workbook
 writexl.write_xlsx_close(wt_workbook)
