@@ -2,3 +2,5 @@
 *.pyc
 *.xml
 *.iml
+.idea/workspace.xml
+__pycache__/readwrite_class.cpython-35.pyc
