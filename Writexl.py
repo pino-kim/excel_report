@@ -15,7 +15,8 @@ class Writexl :
 
     def set_cell_format(self, workbook, type = 'defauilt'):
         if type == 'title':
-            format = workbook.add_format({'bold': True,
+            format = workbook.add_format({'bold' : True,
+                                          'border' : 1,
                                           'bg_color':'silver',
                                           'font_color': 'red',
                                           'font_size': 15,
@@ -24,13 +25,16 @@ class Writexl :
 
         elif type == 'label' :
             format = workbook.add_format({'bold': False,
-                                          #'bg_color':'yellow',
+                                          'border': 1,
+                                          'bg_color':'yellow',
                                           'font_color': 'blue',
-                                          'font_size': 12, 'align':'center', })
+                                          'font_size': 12,
+                                          'align':'center', })
             return format
 
         elif type == 'defauilt' :
             format = workbook.add_format({'bold': False,
+                                          'border': 1,
                                           'font_color': 'black'})
             return format
 
