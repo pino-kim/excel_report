@@ -35,3 +35,22 @@ class Readxl :
     def read_xlsx_close(self,workbook) :
         workbook.release_resources()
 
+
+def read_col_data(file_name, sheet_num, col_num) :
+    # Readxl class example
+    readxl = Readxl(file_name)
+
+    # read workbook, worksheet
+    rd_workbook = readxl.read_xlsx_workbook()
+    # print(rd_workbook)
+    rd_worksheet = readxl.read_xlsx_worksheet(rd_workbook, sheet_num)
+    # print(rd_worksheet)
+
+    # get data first  section A colum
+    (data_len, data) = readxl.read_data_from_col(rd_worksheet, col_num)
+
+    # close readed workbook
+    readxl.read_xlsx_close(rd_workbook)
+    del readxl
+
+    return (data_len, data)

@@ -1,22 +1,8 @@
 from Readxl import *
 from Writexl import *
 
-# Readxl class example
-readxl = Readxl("input.xlsx")
 
-# read workbook, worksheet
-rd_workbook = readxl.read_xlsx_workbook()
-#print(rd_workbook)
-rd_worksheet = readxl.read_xlsx_worksheet(rd_workbook, 0)
-#print(rd_worksheet)
-
-# get data first  section A colum
-(data_len, data) = readxl.read_data_from_col(rd_worksheet,0)
-
-# close readed workbook
-readxl.read_xlsx_close(rd_workbook)
-del readxl
-
+(data_len, data) = read_col_data("input.xlsx", 0, 0)
 
 # Writexl class example
 writexl = Writexl('output.xlsx')
